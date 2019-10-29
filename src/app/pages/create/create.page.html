@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>create</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="createSongForm" (submit)="createSong()">
+    <ion-item>
+      <ion-label stacked>Song Name</ion-label>
+      <ion-input formControlName="songName" type="text" placeholder="¿Cual es el nombre de la cancion?">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Artist name</ion-label>
+      <ion-input formControlName="artistName"
+      type="text"
+      placeholder="¿Quien es el cantante?">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Song Description</ion-label>
+      <ion-textarea formControlname="songDescription" type="text" placeholder="¿Sobre que trata esta cancion?">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="!createSongForm.valid">
+      Add Song
+    </ion-button>
+  </form>
+</ion-content>
+
