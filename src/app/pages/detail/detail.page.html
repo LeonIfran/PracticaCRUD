@@ -1,9 +1,56 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
-    <ion-title>detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ (song | async)?.songName }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <h3>Artist</h3>
+  <p>
+    The song {{ (song | async)?.songName }} was released by {{ (song |
+    async)?.artistName }}.
+  </p>
 
+  <h3>Album</h3>
+  <p>
+    It was part of the {{ (song | async)?.albumName }} album.
+  </p>
+
+  <h3>Description</h3>
+  <p>
+    {{ (song | async)?.songDescription }}
+  </p>
+</ion-content> -->
+
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons>
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+        <ion-title>{{ (song | async)?.songName }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Artist</h3>
+  <p>
+    The song {{ (song | async)?.songName }} was released by {{ (song |
+    async)?.artistName }}.
+  </p>
+  <h3>Album</h3>
+  <p>
+    It was of the {{ (song | async)?.albumName }} album.
+  </p>
+  <h3>Description</h3>
+  <p>
+    {{ (song | async)?.songDescription }}
+  </p>
+
+  <!-- <ion-button expand="block" (click)="deleteSong()">
+  DELETE SONG
+</ion-button> -->
+  <ion-button expand="block" (click)="deleteSong()" color="warning">DELETE SONG</ion-button>
 </ion-content>

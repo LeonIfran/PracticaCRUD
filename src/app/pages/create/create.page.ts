@@ -11,11 +11,11 @@ import { RouterModule, Routes, Router } from '@angular/router';
 })
 export class CreatePage implements OnInit {
   public createSongForm: FormGroup;
-  router: Router;
+ /*  router: Router; */
   constructor(public loadingCtrl: LoadingController, 
     public alertCtrl: AlertController, 
     public firestoreService: FirestoreService, 
-    formBuilder: FormBuilder ) { 
+    formBuilder: FormBuilder, private router: Router ) { 
       this.createSongForm =  formBuilder.group({
         albumName: ['', Validators.required],
         artistName: ['', Validators.required],
@@ -46,24 +46,7 @@ export class CreatePage implements OnInit {
     
       return await loading.present();
     }
-/*     async createSong(){
-      const loading = await this.loadingCtrl.create();
-      const albumName = this.createSongForm.value.albumName;
-      const artistName = this.createSongForm.value.artistName;
-      const songDescription = this.createSongForm.value.songDescription;
-      const songName = this.createSongForm.value.songName;
 
-      this.firestoreService.createSong(albumName, artistName, songDescription, songName).then( () => {loading.dismiss().then( () => {
-        this.router.navigateByUrl('');
-      });
-      }, error => {
-        console.error(error)
-      }
-      
-      );
-
-      return await loading.present();
-    } */
 
   ngOnInit() {
   }
